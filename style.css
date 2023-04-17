@@ -1,0 +1,549 @@
+/*
+Theme Name: Open Source Portfolio
+Theme URI: https://alexui.com/
+Description: Custom theme for your client.
+Author: Abhinav Jain
+Author URI: https://alexui.com
+Version: 1.0
+*/
+
+/* Importing Adobe Fonts - Aktiv Grotesk */
+@import url("https://use.typekit.net/qhy2sge.css");
+
+/* Variables */
+:root {
+    --white: #F5F5F4;
+    --black: #171717;
+}
+
+/* Unset Defaults and add own defaults */
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--white);
+    /* To have smooth behavior on scroll = useful on ID links */
+    scroll-behavior: smooth;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+/* Setting Font for all headings and other texts */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+ul,
+li,
+body {
+    font-family: "aktiv-grotesk-extended", sans-serif;
+}
+
+p {
+    /* Perfect Suggestion, just adding this makes the content look so much better and readable */
+    line-height: 140%;
+}
+
+/* Design Scrollbar */
+body::-webkit-scrollbar {
+    width: 0.50em;
+    background: var(--white);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--black);
+}
+
+/* Design Selection */
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--white);
+    background: #5a5a5a;
+}
+
+::selection {
+    color: var(--white);
+    background: #5a5a5a;
+}
+
+
+/* Wrapper */
+.wrapper {
+    width: 100%;
+    max-width: 92vw;
+    margin: auto;
+}
+
+/* Style All Links  */
+a {
+    color: var(--black);
+    text-decoration: none;
+    /* Transition on all links by default */
+    transition: all 0.25s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    margin: auto;
+}
+
+/* Loading Screen */
+.loader {
+    background-color: var(--black);
+    position: fixed;
+    width: -webkit-fill-available;
+    z-index: 9;
+}
+
+.loader-content {
+    display: flex;
+    height: 100vh;
+    justify-content: left;
+    padding: 2%;
+    align-items: center;
+}
+
+
+.load-progress {
+    height: 4px;
+    background: white;
+    width: 0%;
+    opacity: 0;
+    /* Progress bar animation for 4s */
+    animation: progressBar 4s alternate ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.loader {
+    transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+    /* Page reval animation for 2 seconds */
+    animation: reveal-page 2s alternate ease-in-out;
+    animation-delay: 4s;
+    /* Keep the animated changes */
+    animation-fill-mode: forwards;
+}
+
+/* Loader Anim */
+@keyframes progressBar {
+
+    /* Change width and opacity */
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes reveal-page {
+
+    /* Move the div out of viewport */
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Header */
+
+/* Hide Desktop Header by default  */
+#desktop-header {
+    display: none;
+}
+
+/* Mobile Header */
+
+.menu-icon {
+    cursor: pointer;
+}
+
+#mobile-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+#mobile-header li {
+    transition: all 0.25s ease-in-out;
+    padding: 0.5rem;
+    border: 1px solid var(--black);
+    margin: 0.1rem;
+    font-weight: 300;
+}
+
+#mobile-header li:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.logo-menu-icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Desktop Header */
+
+#desktop-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#desktop-header ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 1rem;
+    justify-content: space-between;
+    font-weight: 200;
+}
+
+
+/* Hero */
+.hero-image {
+    max-width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+.hero h1 {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+/* Text Reveal Animation */
+
+.hero h1 {
+    overflow: hidden;
+    line-height: 1;
+}
+
+.hero h1 span {
+    display: block;
+    /* Animating text to reveal for 2s
+    = Using a custom cubic bezier curve easing 
+    = with a delay of 4.2 seconds so it executes after loading animation */
+    animation: text-reveal 2s cubic-bezier(0.77, 0, 0.175, 1) 4.2s;
+}
+
+@keyframes text-reveal {
+
+    /* reveal the text from outside the frame */
+    0% {
+        transform: translate(0, 100%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Section Headings */
+.section-heading {
+    background: var(--black);
+    font-size: 2rem;
+    text-align: center;
+    color: var(--white);
+    margin: 5% 0;
+    /* To avoid horizontal scrollbar */
+    overflow: hidden;
+}
+
+.section-heading h2 {
+    padding: 2%;
+}
+
+/* Projects Section */
+.home-project {
+    border: 0.5px solid var(--black);
+    display: grid;
+    grid-template-columns: 60% 35% 5%;
+    align-items: stretch;
+    cursor: pointer;
+    background-color: var(--white);
+    filter: none;
+    /* Filter Transition */
+    transition: filter 0.7s ease-in-out;
+}
+
+.home-project:hover {
+    /* Invert color on hover */
+    filter: invert(1);
+}
+
+.section-heading span {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    stroke-width: 1px;
+    -webkit-text-stroke-color: var(--white);
+    stroke: var(--white);
+}
+
+.section-heading h2 {
+    margin: 0;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    transform: translateX(100%);
+    /* Animation will start out of the parent div */
+    /* infinite make reapeat the animation indefinitely */
+    animation: move 20s linear infinite;
+}
+
+
+/* Animations */
+
+@keyframes move {
+
+    /* Simply move infinitely horizontally */
+    to {
+        transform: translateX(-110%);
+    }
+}
+
+
+
+.home-project h3 {
+    padding-left: 2%;
+}
+
+.home-project img {
+    max-width: 40%;
+}
+
+.home-project div {
+    border-left: 0.5px solid var(--black);
+    display: flex;
+    padding: 0 2%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Form */
+
+form .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1%;
+}
+
+.input-group input {
+    width: 50%;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: .5px solid var(--black);
+    padding: 2%;
+    margin: 0.5% 0;
+}
+
+input[type="submit"] {
+    background-color: var(--black);
+    border: 1px solid var(--black);
+    color: var(--white);
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    /* Transition for 0.25 seconds */
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    padding: 2%;
+    margin: .5% 0;
+}
+
+input[type="submit"]:hover {
+    /* INvert colors on hover */
+    background-color: var(--white);
+    color: black;
+}
+
+.copyright {
+    text-align: center;
+    padding: 2% 0;
+}
+
+
+/* Contact Page */
+.hero.inner-pages {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-page section {
+    padding: 2rem 0;
+}
+
+.hero.contact-me {
+    background-image: url('/assets/img/contact.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info a {
+    text-decoration: underline;
+}
+
+/* About Page */
+.about-page section {
+    padding: 2rem 0;
+}
+
+.hero.about-me {
+    background-image: url('/assets/img/about-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.about-image {
+    max-height: 80vh;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.about-info {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+/* Projects */
+
+.load-project {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+}
+
+.load-project .project-link {
+    text-align: right;
+}
+
+.single-project h3 {
+    margin-bottom: 0;
+}
+
+.project-link:any-link {
+    text-decoration: none;
+}
+
+.projects {
+    display: grid;
+}
+
+.projects-hero {
+    background-image: url('/assets/img/project-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+/* Media Queries */
+/* Tablets */
+@media screen and (min-width: 768px) {
+    /* Since we have only 3 items in menu, let's show them all on tablet */
+    #desktop-header {
+        display: flex;
+    }
+
+    #mobile-header {
+        display: none;
+    }
+}
+
+/* Desktops */
+@media screen and (min-width: 1024px) {
+    #desktop-header {
+        display: flex;
+    }
+
+    #mobile-header {
+        display: none;
+    }
+
+    .hero-info {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 2%;
+    }
+
+    .products {
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    .footer-text {
+        grid-template-columns: 50% 50%;
+    }
+
+    .location {
+        text-align: right;
+    }
+
+    .project {
+        grid-template-columns: 80% 15% 5%;
+    }
+
+    .contact-page .hero.contact-me {
+        text-align: center;
+    }
+
+    .projects {
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 40px;
+    }
+
+    .load-project {
+        grid-template-columns: 50% 50%;
+    }
+
+    .hero.about-me {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero.inner-pages {
+        text-align: left;
+    }
+
+    .about-image {
+        padding-top: 0;
+    }
+
+    .about-info {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+}

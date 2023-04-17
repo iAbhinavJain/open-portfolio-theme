@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Abhinav Jain</title>
+    <!-- Import Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/qhy2sge.css">
+    <!-- Include Stylesheets - Normalize followed by Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="contact-page">
+    <!-- Wrapper Start -->
+    <!-- Loader Animation Start -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="load-progress"></div>
+        </div>
+    </div>
+    <!-- Loader Animation End -->
+    <div class="wrapper">
+        <!-- Header Start -->
+        <header>
+            <!-- Desktop Header -->
+            <div id="desktop-header">
+                <!-- Logo -->
+                <a href="index.html"><h2 class="logo">Abhinav Jain</h2></a>
+                <ul class="menu right-menu">
+                    <li><a href="projects.html" class="nav-item">Projects</a></li>
+                    <li><a href="about.html" class="nav-item">About</a></li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Desktop Header End -->
+            <!-- Mobile Header -->
+            <div id="mobile-header">
+                <div class="logo-menu-icon-wrapper">
+                    <a href="index.html"><h2 class="logo">Abhinav Jain</h2></a>
+                    <a class="menu-icon" onclick="toggleMenu();"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <!-- Reason for adding inline style to ul: Javascript's style.display only looks at inline styles  -->
+                <ul style="display: none;">
+                    <a href="projects.html" class="nav-item">
+                        <li>Projects</li>
+                    </a>
+                    <a href="about.html" class="nav-item">
+                        <li>About</li>
+                    </a>
+                    <a href="contact.html" class="nav-item">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+            <!-- Mobile Header End -->
+        </header>
+        <!-- Header End -->
+        <!-- Hero Section Start -->
+        <div class="hero inner-pages contact-me">
+            <h1><span>Working from <b>Ontario, Canada</b> 🍁 <br> collaborating
+                    with brands locally and <br> globally. To discuss a
+                    project please <br> get in touch.</span></h1>
+            <a href="#contact-info"><i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+        <!-- Hero Section End -->
+        <!-- Contact Info Section Start -->
+        <section class="contact-info" id="contact-info">
+            <p>Reach out to me via Email:<br /><a href="mailto:work@alexui.com">work@alexui.com</a></p>
+            <p>You can also contact me on my Socials:<br /><a href="https://www.linkedin.com/in/iamabhinav-jain/">LinkedIn</a><br /><a href="https://www.facebook.com/abhinav.jain.566790/">Facebook</a><br /><a href="https://www.instagram.com/iamabhinav_jain/">Instagram</a></p>
+            <p>Wanna contact the old way?<br /><a href="#form">Fill out a Contact Form</a><br />&amp; I'll get back to you</p>
+        </section>
+        <!-- Contact Info Section End -->
+        <!-- Contact Form Section Starts -->
+        <section id="form">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" name="first-name" id="first-name" placeholder="First Name">
+                    <input type="text" name="last-name" id="last-name" placeholder="Second Name">
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email-address" id="email-address" placeholder="Email Address">
+                    <input type="tel" name="phone-number" id="phone-number" placeholder="Phone Number">
+                </div>
+                <div class="input-group">
+                    <textarea name="message" id="message" cols="30" rows="10"
+                        placeholder="Please Explain your Project briefly"></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <!-- Contact Form Section Ends -->
+        <!-- Copyright Section starts -->
+        <section class="copyright">
+            <hr>
+            <small>No Rights Reserved | Feel Free to use</small>
+        </section>
+        <!-- Copyright Section Ends -->
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- Javascript Magic to toggle menu -->
+    <script>
+        /* Function being called on click of menu icon */
+        function toggleMenu() {
+            /* Storing Nav items and menu icon in variables */
+            var menu_items = document.querySelector('#mobile-header ul');
+            var menu_icon = document.querySelector('.menu-icon i');
+            /* On click of Menu Toggle Icon, we are Checking if the menu is closed/hidden, 
+            if so, making it display and vice versa. Also, switching fontawesome icon respectively to improve UX  */
+            if (menu_items.style.display == 'none') {
+                menu_items.style.display = 'block';
+                menu_icon.classList.remove('fa-bars');
+                menu_icon.classList.add('fa-xmark');
+            } else {
+                menu_items.style.display = 'none';
+                menu_icon.classList.remove('fa-xmark');
+                menu_icon.classList.add('fa-bars');
+            }
+        }
+    </script>
+</body>
+
+</html>
