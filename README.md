@@ -3,7 +3,7 @@
 
 An open source portfolio theme for WordPress by a noob developer who's trying to be a designer. 🧑‍🎨 💻
 
-(https://raw.githubusercontent.com/iAbhinavJain/open-portfolio-theme/b6e9480b6fbf820c13278ae993bf1ab86b2b8c14/screenshot.png)
+![alt text](https://raw.githubusercontent.com/iAbhinavJain/open-portfolio-theme/b6e9480b6fbf820c13278ae993bf1ab86b2b8c14/screenshot.png)
 
 
 ## Credits
