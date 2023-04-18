@@ -1,7 +1,7 @@
 <!-- Copyright Section starts -->
 <footer class="copyright">
             <hr>
-            <small>No Rights Reserved | Feel Free to use</small>
+            <small><?php dynamic_sidebar( 'footerbar' ); ?></small>
         </footer>
         <!-- Copyright Section Ends -->
     </div>
@@ -9,6 +9,8 @@
 
     <!-- Javascript Magic -->
     <script src="<?php bloginfo( 'template_url' ) ?>/scripts/app.js"></script>
+    <!-- Let Wordpress add its footer scripts -->
+    <?php wp_footer(); ?>
 </body>
 
 </html>

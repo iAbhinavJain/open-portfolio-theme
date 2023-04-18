@@ -3,6 +3,8 @@
 * Author: Abhinav 
 *
 *****************/
+
+  @import url("https://use.typekit.net/jxu2ozq.css");
 /* Variables */
 :root {
     --white: #F5F5F4;
@@ -17,6 +19,7 @@ body {
     background-color: var(--white);
     /* To have smooth behavior on scroll = useful on ID links */
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 p {
@@ -90,9 +93,14 @@ a:hover {
 img {
     max-width: 100%;
     margin: auto;
+    height: auto;
 }
 
 /* Loading Screen */
+body:not(.home) .loader {
+    display: none;
+}
+
 .loader {
     background-color: var(--black);
     position: fixed;
@@ -228,6 +236,10 @@ img {
     = Using a custom cubic bezier curve easing 
     = with a delay of 4.2 seconds so it executes after loading animation */
     animation: text-reveal 2s cubic-bezier(0.77, 0, 0.175, 1) 4.2s;
+}
+
+body:not(.home) .hero h1 span {
+    animation: text-reveal 2s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @keyframes text-reveal {
@@ -388,7 +400,7 @@ input[type="submit"]:hover {
 }
 
 .hero.contact-me {
-    background-image: url('../img/contact.png');
+    background-image: url('../assets/img/contact.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -409,7 +421,7 @@ input[type="submit"]:hover {
 }
 
 .hero.about-me {
-    background-image: url('../img/about-bg.png');
+    background-image: url('../assets/img/about-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -418,10 +430,11 @@ input[type="submit"]:hover {
     flex-direction: column-reverse;
 }
 
-.about-image {
+.about-image img{
     max-height: 80vh;
     margin: auto;
     padding-top: 20px;
+    object-fit: contain;
 }
 
 .about-info {
@@ -454,7 +467,7 @@ input[type="submit"]:hover {
 }
 
 .projects-hero {
-    background-image: url('../img/project-bg.png');
+    background-image: url('../assets/img/project-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -475,6 +488,30 @@ input[type="submit"]:hover {
     }
 }
 
+/* Portfolio Item */
+.hero.portfolio-item {
+    height: 90vh;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 100% 100%;
+    background-image: url('../assets/img/project-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/* Wp Form 7 FIx */
+.wpcf7-form-control-wrap {
+    position: relative;
+    display: flex;
+}
+
+/* WP Widget */
+li.widget {
+    list-style: none;
+}
+
 /* Desktops */
 @media screen and (min-width: 1024px) {
     #desktop-header {
@@ -487,7 +524,7 @@ input[type="submit"]:hover {
 
     .hero-info {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 1fr 1fr;
         gap: 2%;
     }
 
@@ -539,4 +576,12 @@ input[type="submit"]:hover {
         display: grid;
         grid-template-columns: 40% 60%;
     }
+
+    .hero.portfolio-item {
+        height: 90vh;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 50% 50%;
+    }
 }
+
