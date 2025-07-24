@@ -37,12 +37,12 @@ Install it like any other WordPress theme
 - For footer, go to Appearance > Widgets and use the Footerbar widget. 
 ## Support
 
-Though I am not planning to continue support for this theme, feel free to shoot me an email over at work@alexui.com for any questions, feedbacks or suggestions.
+Though I am not planning to continue support for this theme, feel free to shoot me an email over at hello@iabhinavj.com for any questions, feedbacks or suggestions.
 
 ## 🚀 About Me
 A Visual Storyteller and a Web Developer who's trying to be a designer! 
 
-- [My Portfolio Website](https://alexui.com)
-- [Want to discuss a Project?](mailto:work@alexui.com)
+- [My Portfolio Website](https://iabhinavj.com)
+- [Want to discuss a Project?](mailto:hello@iabhinavj.com)
 - [Buy Me a Coffee](https://www.buymeacoffee.com/abhinavj)
 
